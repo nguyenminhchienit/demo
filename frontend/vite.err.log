@@ -1,0 +1,2 @@
+[2m2:46:40 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /src/api.js (resolved id: D:/MyStorage/frontend/src/api.js) in D:/MyStorage/frontend/src/App.jsx. Does the file exist?
+[2m2:46:40 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above)

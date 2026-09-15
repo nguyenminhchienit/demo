@@ -1,7 +1,10 @@
 import json
 import logging
+import os
 from collections.abc import Generator
+from pathlib import Path
 
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
@@ -11,16 +14,23 @@ from models import Conversation, ConversationSummary, Message, MessageCreate
 from store import conversations, create_conversation, list_conversation_summaries, title_from_message
 
 
+load_dotenv(dotenv_path=Path(__file__).with_name(".env"))
+
 app = FastAPI(title="Chat Lab")
 logger = logging.getLogger("generation-state-leak-demo")
 
+
+def csv_env(name: str, default: str = "") -> list[str]:
+    return [item.strip() for item in os.environ.get(name, default).split(",") if item.strip()]
+
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5000",
-        "http://127.0.0.1:5000",
-    ],
-    allow_origin_regex=r"http://(localhost|127\.0\.0\.1):\d+",
+    allow_origins=csv_env(
+        "CORS_ALLOWED_ORIGINS",
+        "http://localhost:5000,http://127.0.0.1:5000",
+    ),
+    allow_origin_regex=os.environ.get("CORS_ALLOW_ORIGIN_REGEX") or None,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

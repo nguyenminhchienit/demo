@@ -20,3 +20,5 @@
 [2m2:46:42 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [optimizer] bundling dependencies...
 [2m2:46:42 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mdependency optimized: [33maxios[32m[39m
 [2m2:46:42 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32moptimized dependencies changed. reloading[39m
+[2m3:02:35 AM[22m [36m[1m[vite][22m[39m [32m.env.local changed, restarting server...[39m
+[2m3:02:35 AM[22m [36m[1m[vite][22m[39m server restarted.

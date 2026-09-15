@@ -25,7 +25,11 @@ npm install
 npm run dev -- --host 127.0.0.1 --port 5000
 ```
 
-Mở Vite URL: `http://127.0.0.1:5000`. Frontend mặc định gọi backend tại `http://127.0.0.1:9001`.
+Mở Vite URL: `http://127.0.0.1:5000`. Frontend đọc backend URL từ `frontend/.env.local`:
+
+```bash
+VITE_API_BASE_URL=http://127.0.0.1:9001
+```
 
 ## Groq API key
 
@@ -34,6 +38,8 @@ File `backend/.env` đã được tạo sẵn với placeholder:
 ```bash
 GROQ_API_KEY=xxx
 GROQ_MODEL=openai/gpt-oss-120b
+CORS_ALLOWED_ORIGINS=http://localhost:5000,http://127.0.0.1:5000
+CORS_ALLOW_ORIGIN_REGEX=http://(localhost|127\.0\.0\.1):\d+
 ```
 
 Bạn tự thay `GROQ_API_KEY` bằng key thật. Nếu chưa có key: vào `console.groq.com` -> `API Keys`.
